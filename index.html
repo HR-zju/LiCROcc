@@ -146,24 +146,8 @@
 </section>
 
 
-<!-- Teaser video 封面视频-->
-<!-- <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section> -->
-<!-- End teaser video -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
+<section class="section hero is-light is-fullwidth"">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -185,27 +169,28 @@ In this paper, we focus on the potential of 3D radar in semantic scene completio
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+      <h2 class="title">Method</h2> 
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
         <img src="static/images/wallpaper.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
+        <h2 class="subtitle has-text-justified">
+          Our motivation for proposing LiCROcc. We explore the performance of radar on SSC tasks with the expectation of developing a network with balanced performance and robustness. We further improve the semantic occupancy prediction and distance measurement capabilities of radar sensors by cross-modal distillation while maintaining their inherent night vision capabilities and weather robustness. In the figure on the right, the blue line represents the capability of the teacher model, the remaining solid line represents the capability of the pre-distillation student in our two settings, and the dashed line represents the equilibrium performance of the model after KD.
+    The graphs on the bottom demonstrates the enhancement of our method after gradually adding modules from the base model, and the comparison with other methods on nuScenes-Occupancy (validation set), including Co-Occ, RC-CoNet and PointOcc.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/pipline.png" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
+        <h2 class="subtitle has-text-justified">
+          Overall framework of our LiCROcc. We designed a base framework for point cloud and image fusion, where the models serve as the teacher and student, respectively. We unified both fusion processes under BEV space to reduce computational cost. Additionally, we designed three novel distillation losses (CMRD, BRD, and PDD) to achieve effective cross-modal KD. Inference is performed using only the RC fusion Network, where camera input is optional. 
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
         <img src="static/images/KD.png" alt="MY ALT TEXT" />
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
+        <h2 class="subtitle has-text-justified">
+          Detailed illustration of the use of CMRD and BRD on BEV features. The feature with the blue background is a BEV feature copied from the teacher model. The details of the loss computation are illustrated in the dashed box.
      </div>
      <!-- <div class="item">
       <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
@@ -220,40 +205,237 @@ In this paper, we focus on the potential of 3D radar in semantic scene completio
 <!-- End image carousel -->
 
 
-<section class="section" id="Architecture">
-    <div class="container is-max-desktop">
-      <h2 class="title">Visual comparision</h2>
-      <div class="hero-body">
-        <center>
-          <embed type="image/png" src="static/images/vs.png" width="100%" />
-        </center>
-        <!-- <h2 class="subtitle has-text-justified" style="padding-top: 1rem;">
-          In LeapAD, the Scene Understanding module mimics human driving attention,
-          analyzing surrounding images and selectively focusing on key objects influencing decision-making.
-          It provides detailed descriptions and behavioral reasoning of these objects, facilitating informed subsequent
-          decisions.
-          The Analytic System then uses an LLM to accumulate experience in driving analysis and decision-making,
-          conducting reflections on accidents. The experience is stored in memory and transferred to a lightweight
-          language model, forming our Heuristic System for quick responses and continuous learning
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Method</h2> 
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/tab.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-justified">
+          Performance on nuScenes-Occupancy (validation set). We report the geometric metric IoU, semantic metric mIoU, and the IoU for each semantic class. The C,D,L,R,M denotes camera, depth, LiDAR, radar and multi-modal. For "Surround=yes", the method directly predicts surrounding semantic occupancy with 360-degree inputs. Otherwise, the method produces the results of each camera view, and then concatenates them as surrounding outputs. We divide the form into three categories based on the modality of the inputs. Bold represents the best score.
         </h2>
-        <h2 class="subtitle has-text-justified" style="padding-top: 1rem;">
-          <b>The Heuristic System</b> in LeapAD performs closed-loop decision-making using a few-shot strategy. It is
-          designed for enabling instant decision-making within the vehicle. When encountering traffic accidents, the
-          Heuristic System relies on the knowledge transferred from the Analytic System to make quick and efficient
-          decisions. This lightweight model ensures rapid responses and adaptability in various driving scenarios,
-          maintaining a high level of performance with minimal computational resources.
-        </h2>
-        <h2 class="subtitle has-text-justified" style="padding-top: 1rem;">
-          <b>The Analytic System</b> in LeapAD is designed for thorough analysis and reasoning. It processes more
-          complex scenarios and builds a comprehensive memory base of high-quality driving decisions. The Analytic
-          System accumulates experience through continuous learning and self-reflection, analyzing accidents, and
-          updating the memory bank. This accumulated knowledge is then transferred to the Fast System through supervised
-          fine-tuning (SFT), ensuring the entire LeapAD system continuously improves and adapts to new driving
-          environments and challenges.
-        </h2> -->
       </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/vs.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-justified">
+          Visual comparison of our LiCROcc with baseline methods on OppenOccupancuy benchmark. Our methods stand out by offering a more comprehensive representation of the scene and more accurate segmentation boundaries compared to CoOcc and PointOcc. Surprisingly, the R-LiCROcc is capable of segmenting feasible regions and obstacles even with only two thousand radar points as input.
+        </h2>
+      </div>
+
+     <!-- <div class="item">
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
+    </div> -->
+  </div>
+</div>
+</div>
+</section>
+
+
+
+
+<section class="hero is-small">  
+  <div class="hero-body">  
+    <div class="container">  
+      <img src="static/images/sun.png" alt="Leap Icon" style="width: 90px; margin-right: 30px;">
+      <!-- <h2 class="title">Sunny</h2>   -->
+      <div id="results-carousel" class="carousel results-carousel">  
+        <div class="item">  
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/sunday/cam+lidar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            Our LC-Fusion: LiDAR+Camera
+          </h2>  
+        </div>    
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/sunday/cam+radar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            RC-LiCROcc: Radar+Camera
+          </h2>  
+        </div>  
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/sunday/radarKD+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            R-LiCROcc: Radar-only 
+          </h2>  
+        </div>    
+      </div>  
+    </div>  
+  </div>  
+</section>  
+
+<section class="hero is-small">  
+  <div class="hero-body">  
+    <div class="container">  
+      <img src="static/images/rain.png" alt="Leap Icon" style="width: 90px; margin-right: 30px;">
+      <!-- <h2 class="title">Sunny</h2>   -->
+      <div id="results-carousel" class="carousel results-carousel">  
+        <div class="item">  
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rain/cam+lidar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            Our LC-Fusion: LiDAR+Camera
+          </h2>  
+        </div>    
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rain/cam+radar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            RC-LiCROcc: Radar+Camera
+          </h2>  
+        </div>  
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rain/radarKD+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            R-LiCROcc: Radar-only 
+          </h2>  
+        </div>    
+      </div>  
+    </div>  
+  </div>  
+</section>  
+
+
+<section class="hero is-small">  
+  <div class="hero-body">  
+    <div class="container">  
+      <img src="static/images/moon.png" alt="Leap Icon" style="width: 90px; margin-right: 30px;">
+      <!-- <h2 class="title">Sunny</h2>   -->
+      <div id="results-carousel" class="carousel results-carousel">  
+        <div class="item">  
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/night/cam+lidar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            Our LC-Fusion: LiDAR+Camera
+          </h2>  
+        </div>    
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/night/cam+radar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            RC-LiCROcc: Radar+Camera
+          </h2>  
+        </div>  
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/night/radarKD+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            R-LiCROcc: Radar-only 
+          </h2>  
+        </div>    
+      </div>  
+    </div>  
+  </div>  
+</section>  
+
+
+<section class="hero is-small">  
+  <div class="hero-body">  
+    <div class="container">  
+      <img src="static/images/RN.png" alt="Leap Icon" style="width: 90px; margin-right: 30px;">
+      <!-- <h2 class="title">Sunny</h2>   -->
+      <div id="results-carousel" class="carousel results-carousel">  
+        <div class="item">  
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rainnight/cam+lidar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            Our LC-Fusion: LiDAR+Camera
+          </h2>  
+        </div>    
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rainnight/cam+radar+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            RC-LiCROcc: Radar+Camera
+          </h2>  
+        </div>  
+        <div class="item"> 
+          <center>  
+            <video width="100%" controls>  
+              <source src="static/videos/rainnight/radarKD+normal.mp4" type="video/mp4">  
+              Your browser does not support the video tag.  
+            </video>  
+          </center>  
+          <h2 class="subtitle has-text-centered">  
+            R-LiCROcc: Radar-only 
+          </h2>  
+        </div>    
+      </div>  
+    </div>  
+  </div>  
+</section>  
+
+<!-- Teaser video 封面视频-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+      
     </div>
-  </section>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+
 
 
 
@@ -277,33 +459,33 @@ In this paper, we focus on the potential of 3D radar in semantic scene completio
 
 
 <!-- Video carousel -->
-<!-- <section class="hero is-small">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
+      <h2 class="title is-3">Comparison</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel1.mp4"
+            <source src="static/videos/night.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel2.mp4"
+            <source src="static/videos/night.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/night.mp4"
             type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 <!-- End video carousel -->
 
 
