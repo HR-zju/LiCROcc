@@ -208,13 +208,20 @@ In this paper, we focus on the potential of 3D radar in semantic scene completio
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Method</h2> 
+      <h2 class="title">Experiments</h2> 
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
         <img src="static/images/tab.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-justified">
           Performance on nuScenes-Occupancy (validation set). We report the geometric metric IoU, semantic metric mIoU, and the IoU for each semantic class. The C,D,L,R,M denotes camera, depth, LiDAR, radar and multi-modal. For "Surround=yes", the method directly predicts surrounding semantic occupancy with 360-degree inputs. Otherwise, the method produces the results of each camera view, and then concatenates them as surrounding outputs. We divide the form into three categories based on the modality of the inputs. Bold represents the best score.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/ab.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-justified">
+          We evaluate the performance of the model under various distances and weather conditions. The following conclusions are drawn: 1. Radar is more robust to light and severe weather conditions compared to LiDAR and camera. 2. Distilling the LiDAR-camera fusion network into radar can significantly improve its SSC performance. 3. In terms of distillation effect, close proximity and clear daytime conditions are the dominant zones of LC-Fusion, with the best distillation effect. 4. The experimental requirements are satisfied, given the only dataset used, the nuScenes dataset, which features less severe weather, with LiDAR almost unaffected.
         </h2>
       </div>
       <div class="item">
