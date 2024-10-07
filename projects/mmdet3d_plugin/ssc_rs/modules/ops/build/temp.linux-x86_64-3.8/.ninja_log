@@ -1,0 +1,4 @@
+# ninja log v5
+0	6909	1695964089761792630	/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/build/temp.linux-x86_64-3.8/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/src/cpu/ms_deform_attn_cpu.o	87da2848d2457d98
+0	14462	1695964097313711464	/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/build/temp.linux-x86_64-3.8/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/src/cuda/ms_deform_attn_cuda.o	49b4a0d003707543
+0	19601	1695964102449656260	/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/build/temp.linux-x86_64-3.8/home/jm/Documents/codes/SSC/SSC-RS/projects/mmdet3d_plugin/ssc_rs/modules/ops/src/vision.o	57ed75e00646aba1
