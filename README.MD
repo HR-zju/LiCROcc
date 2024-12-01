@@ -7,17 +7,16 @@ This repository contains the implementation of the paper.
 If you find our work useful, Please give us a star 🌟!
 
 > LiCROcc: Teach Radar for Accurate Semantic Occupancy Prediction using LiDAR and Camera <br>
-> [Yukai Ma](https://april.zju.edu.cn/team/yukai-ma/)<sup>1,2</sup>, [Jianbiao Mei](https://april.zju.edu.cn/team/jianbiao-mei/)<sup>1,2</sup>, [Xuemeng Yang](https://scholar.google.com/citations?user=xGuZsikAAAAJ&hl=zh-CN)<sup>2</sup>, [Licheng Wen](https://wenlc.cn/)<sup>2</sup>, [Weihua Xu](https://person.zju.edu.cn/whxu)<sup>1</sup>, [Jiangning Zhang](https://zhangzjn.github.io/)<sup>1</sup>, [Botian Shi](https://scholar.google.com/citations?user=K0PpvLkAAAAJ)<sup>2,^</sup>, [Yong Liu](https://scholar.google.com.hk/citations?user=qYcgBbEAAAAJ&hl=zh-CN&oi=sra)<sup>1,^</sup>, [Xingxing Zuo](https://xingxingzuo.github.io/)<sup>3</sup><br>
+> [Yukai Ma](https://april.zju.edu.cn/team/yukai-ma/)<sup>1,2</sup>, [Jianbiao Mei](https://april.zju.edu.cn/team/jianbiao-mei/)<sup>1,2</sup>, [Xuemeng Yang](https://scholar.google.com/citations?user=xGuZsikAAAAJ&hl=zh-CN)<sup>2</sup>, [Licheng Wen](https://wenlc.cn/)<sup>2</sup>, [Weihua Xu](https://person.zju.edu.cn/whxu)<sup>1</sup>, [Jiangning Zhang](https://zhangzjn.github.io/)<sup>1</sup>, [Xingxing Zuo](https://xingxingzuo.github.io/)<sup>3</sup>, [Botian Shi](https://scholar.google.com/citations?user=K0PpvLkAAAAJ)<sup>2,^</sup>, [Yong Liu](https://scholar.google.com.hk/citations?user=qYcgBbEAAAAJ&hl=zh-CN&oi=sra)<sup>1,^</sup><br>
 > <sup>1</sup>ZJU <sup>2</sup>PJLab<sup>3</sup>TUM<br>
 > <sup>^</sup>Corresponding Authors
 
-## Plan
+## News
 
-We will release the code for radar SSC in this repo.
-
+🎉 [2024/11/06] LiCROcc was accepted by RAL!!!
 ## Getting Started
 ### Installation
-Please refer to [SSC-RS](https://github.com/NVlabs/VoxFormer/tree/main)
+Please refer to [VoxFormer](https://github.com/NVlabs/VoxFormer/tree/main)
 - spconv-cu111==2.1.25  
 - torch-scatter==2.0.8  
 - torchmetrics>=0.9.0  
@@ -70,7 +69,10 @@ Eval R-LiCROcc
 ```
 
 ## Model Zoo
-coming soon
+ Subset | Checkpoint | Logs | Note |
+| :---: | :---: | :---: | :---: |
+| RC-LiCROcc | [link](https://drive.google.com/file/d/14B9lfnVtrgWwmortPv3yydnIyav7AiFk/view?usp=drive_link)| [link](https://drive.google.com/file/d/1PLQ_ETfT_LLcZZvLrvMF3tgGpUp51NMG/view?usp=drive_link) | train on 8 A100|
+| R-LiCROcc | [link](https://drive.google.com/file/d/1ETI3StsHwqQoBn4OkmELB8ppYTt7hunw/view?usp=drive_link)| [link](https://drive.google.com/file/d/1vvkoTrNSmBg_Ktd-yn0UjuFQp9it6DiO/view?usp=drive_link) | train on 8 A100|
 
 ## Cite Us
 
