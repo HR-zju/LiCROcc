@@ -16,7 +16,8 @@ If you find our work useful, Please give us a star 🌟!
 🎉 [2024/11/06] LiCROcc was accepted by RAL!!!
 ## Getting Started
 ### Installation
-Please refer to [VoxFormer](https://github.com/NVlabs/VoxFormer/tree/main)
+Please refer to [VoxFormer](https://github.com/NVlabs/VoxFormer/tree/main) (Directly using the mmdetection3d we provide )
+#### Additional packages to install
 - spconv-cu111==2.1.25  
 - torch-scatter==2.0.8  
 - torchmetrics>=0.9.0  
