@@ -24,7 +24,7 @@ from mmcv.image import tensor2imgs
 from mmcv.runner import get_dist_info
 from nuscenes.nuscenes import NuScenes
 # from thop import profile
-import torchprof  
+# import torchprof  
 from thop import profile  
 
 

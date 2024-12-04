@@ -65,68 +65,18 @@ model = dict(
     Distill_3 = True,
     Distill_3_mask=False,
    ratio_distill = 10,
-#    use_radar=True,
-#    radar_backbone = dict(
-#         type='PtsBackbone',
-#         pts_voxel_layer=dict(
-#         max_num_points=8,
-#         voxel_size=[8, 0.4, 2],
-#         point_cloud_range=[0, 2.0, 0, 704, 58.0, 2],
-#         max_voxels=(768, 1024)
-#         ),
-#         pts_voxel_encoder = dict(
-#                 type='PillarFeatureNet',
-#                 in_channels=5,
-#                 feat_channels=[32, 64],
-#                 with_distance=False,
-#                 with_cluster_center=False,
-#                 with_voxel_center=True,
-#                 voxel_size=[8, 0.4, 2],
-#                 point_cloud_range=[0, 2.0, 0, 704, 58.0, 2],
-#                 norm_cfg=dict(type='BN1d', eps=1e-3, momentum=0.01),
-#                 legacy=True
-#         ),
-#         pts_middle_encoder = dict(
-#                 type='PointPillarsScatter',
-#                 in_channels=64,
-#                 output_shape=(140, 88)
-#         ),
-#         pts_backbone = dict(
-#                 type='SECOND',
-#                 in_channels=64,
-#                 out_channels=[64, 128, 256],
-#                 layer_nums=[3, 5, 5],
-#                 layer_strides=[1, 2, 2],
-#                 norm_cfg=dict(type='BN', eps=1e-3, momentum=0.01),
-#                 conv_cfg=dict(type='Conv2d', bias=True, padding_mode='reflect')
-#             ),
-#         pts_neck = dict(
-#                 type='SECONDFPN',
-#                 in_channels=[64, 128, 256],
-#                 out_channels=[128, 128, 128],
-#                 upsample_strides=[0.5, 1, 2],
-#                 norm_cfg=dict(type='BN', eps=1e-3, momentum=0.01),
-#                 upsample_cfg=dict(type='deconv', bias=False),
-#                 use_conv_for_no_stride=True
-#             ),
-#         occupancy_init = 0.01,
-#         out_channels_pts=80,
-#    ),
-
     # distill
     img_backbone_distill=dict(
         type='ResNet',
         depth=50,
         num_stages=4,
         out_indices=(2, 3),
-        # frozen_stages=4,
         frozen_stages=-1,
         norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=False,
         with_cp=True,
         style='pytorch',
         pretrained='pre_ckpt/resnet50.pth',
-        # frozen = True
     ),
     img_neck_distill=dict(
         type='CustomFPN',
@@ -158,13 +108,11 @@ model = dict(
         num_stages=4,
         out_indices=(2, 3),
         frozen_stages=4,
-        # frozen_stages=-1,
         norm_cfg=dict(type='BN', requires_grad=True),
         norm_eval=False,
         with_cp=True,
         style='pytorch',
         pretrained='pre_ckpt/resnet50.pth',
-        # frozen = True
     ),
     img_neck=dict(
         type='CustomFPN',
@@ -189,27 +137,6 @@ model = dict(
         numC_input=numC_Trans,
         num_channels=[numC_Trans *2, numC_Trans * 4, numC_Trans * 8],
         temporal_adapter=True),
-    # image supervise
-    # img_bev_encoder_neck=dict(
-    #     type='FPN_LSS',
-    #     in_channels=numC_Trans * 8 + numC_Trans * 2,
-    #     out_channels=256),
-    # occ_head=dict(
-    #     type='BEVOCCHead2D_V2',
-    #     in_dim=256,
-    #     out_dim=256,
-    #     Dz=20,
-    #     use_mask=False,
-    #     num_classes=17,
-    #     use_predicter=True,
-    #     class_balance=True,
-    #     loss_occ=dict(
-    #         type='CustomFocalLoss',
-    #         use_sigmoid=True,
-    #         loss_weight=1.0
-    #     ),
-    # ),
-
     # lidar
     pts_voxel_encoder=dict(
         type='PcPreprocessor',

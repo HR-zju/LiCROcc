@@ -16,12 +16,22 @@ If you find our work useful, Please give us a star 🌟!
 🎉 [2024/11/06] LiCROcc was accepted by RAL!!!
 ## Getting Started
 ### Installation
-Please refer to [VoxFormer](https://github.com/NVlabs/VoxFormer/tree/main) (Directly using the mmdetection3d we provide )
-#### Additional packages to install
-- spconv-cu111==2.1.25  
-- torch-scatter==2.0.8  
-- torchmetrics>=0.9.0  
-
+```bash
+# Create a conda virtual environment and activate it.
+conda create -n licrocc python=3.8 -y
+conda activate licrocc
+# Install torch
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f ttps://download.pytorch.org/whl/torch_stable.html
+pip install -r requirements.txt
+# Install mmdet3d
+git clone https://github.com/open-mmlab/mmdetection3d.git
+cd mmdetection3d
+git checkout v0.17.1 # Other versions may not be compatible.
+pip install -v -e .
+# 
+cd ../projects
+pip install -v -e .
+``````
 
 ### Prepare Dataset
 -Please refer to [OpenOccupancy](https://github.com/JeffWang987/OpenOccupancy/blob/main/docs/prepare_data.md) to prepare nuScenes dataset.

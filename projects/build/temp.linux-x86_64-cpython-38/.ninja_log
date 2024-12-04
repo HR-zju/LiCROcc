@@ -1,8 +1,0 @@
-# ninja log v5
-0	13543	1711691765705861500	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool/src/bev_max_pool.o	fccdc67ecb90c1e5
-1	13776	1711691765940714319	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool/src/bev_sum_pool.o	e7853d8f47ccfc08
-0	15636	1711691767799160927	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool/src/bev_pooling.o	70584da6dca1a94
-1	28785	1711691780950659270	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool/src/bev_sum_pool_cuda.o	9d7d35e0f6a0e00d
-0	29736	1711691781902124716	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool/src/bev_max_pool_cuda.o	a0c5f86f72e5ccf6
-1	433	1711691783125423025	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool_v2/src/bev_pool_cuda.o	2b6d76b01277e5a2
-1	14836	1711691797518289548	/cpfs01/user/mayukai/code/ssc-rs-open-mmlab-master/projects/build/temp.linux-x86_64-cpython-38/mmdet3d_plugin/ops/bev_pool_v2/src/bev_pool.o	9899e49bc65d4468

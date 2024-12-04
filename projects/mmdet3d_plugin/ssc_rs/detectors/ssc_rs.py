@@ -12,9 +12,7 @@ import torch.nn as nn
 from torch.nn.functional import cosine_similarity
 from skimage.measure import block_reduce
 from thop import profile  
-
-
-
+from mmdet3d.models.builder import build_backbone, build_neck, build_head, build_voxel_encoder, build_middle_encoder
 
 def draw_feat(feats, type='img'):
     mean_along_128 = [tensor.mean(dim=1)[0] for tensor in feats] 
@@ -95,19 +93,6 @@ class SSC_RS(MVXTwoStageDetector):
                             img_backbone, pts_backbone, img_neck, pts_neck,
                             pts_bbox_head, img_roi_head, img_rpn_head,
                             train_cfg, test_cfg, pretrained, 
-                            img_view_transformer = img_view_transformer,
-                            img_bev_encoder_backbone = img_bev_encoder_backbone, 
-                            img_bev_encoder_neck=img_bev_encoder_neck,
-                            radar_voxel_encoder = radar_voxel_encoder,
-                            radar_backbone=radar_backbone,
-                            radar_middle_encoder = radar_middle_encoder,
-                            radar_bbox_head = radar_bbox_head,
-                            occ_head = occ_head,
-                            # distll
-                            img_backbone_distill=img_backbone_distill,
-                            img_neck_distill=img_neck_distill,
-                            img_view_transformer_distill=img_view_transformer_distill,
-                            img_bev_encoder_backbone_distill = img_bev_encoder_backbone_distill,
                             )
         self.use_image = True if img_backbone!=None else False
         self.use_lidar = True if pts_voxel_encoder!=None else False
@@ -125,6 +110,36 @@ class SSC_RS(MVXTwoStageDetector):
        
         if self.Distill_3:
             pass
+
+        # distill model
+        if img_backbone_distill:
+            self.img_backbone_distill = build_backbone(img_backbone_distill)
+            self.img_neck_distill = build_neck(img_neck_distill)
+            self.img_view_transformer_distill = build_neck(img_view_transformer_distill)
+            self.img_bev_encoder_backbone_distill = build_backbone(img_bev_encoder_backbone_distill)
+
+
+        if radar_voxel_encoder:
+            self.radar_voxel_encoder = build_voxel_encoder(
+                radar_voxel_encoder)
+            self.radar_middle_encoder = build_middle_encoder(
+                radar_middle_encoder)
+            self.radar_backbone = build_backbone(radar_backbone)
+            radar_train_cfg = train_cfg.pts if train_cfg else None
+            radar_bbox_head.update(train_cfg=radar_train_cfg)
+            radar_test_cfg = test_cfg.pts if test_cfg else None
+            radar_bbox_head.update(test_cfg=radar_test_cfg)
+            self.radar_bbox_head = build_head(radar_bbox_head)
+        if occ_head:
+            self.occ_head = build_head(occ_head)
+        if img_view_transformer: # 1
+            self.img_view_transformer = build_neck(img_view_transformer)
+        if img_bev_encoder_backbone: #1
+            self.img_bev_encoder_backbone = build_backbone(img_bev_encoder_backbone)
+        if img_bev_encoder_neck: #1
+            self.img_bev_encoder_neck = build_neck(img_bev_encoder_neck)
+        if occ_head:
+            self.occ_head = build_head(occ_head)
             
 
 
