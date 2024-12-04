@@ -50,9 +50,11 @@ LiCROcc
 │   │   ├── lidarseg/
 │   │   ├── v1.0-test/
 │   │   ├── v1.0-trainval/
-│   │   ├── nuscenes_occ_infos_train.pkl/
-│   │   ├── nuscenes_occ_infos_val.pkl/
+│   │   ├── nuscenes_occ_infos_train.pkl
+│   │   ├── nuscenes_occ_infos_val.pkl
 │   │   ├── radar_bev_filter/
+│   ├── nuScenes-Occupancy/
+│   ├── depth_gt/
 ```
 
 ### Run and Eval
@@ -67,6 +69,11 @@ Train R-LiCROcc
 ```bash
 ./tools/dist_train.sh ./projects/configs/ssc_rs/ssc_rs_base_nuscenes_LC2radar12.py N_GPUs
 ```
+If an error is reported during training：
+```bash
+TypeError: FormatCode() got an unexpected keyword argument 'verify'
+```
+Simply remove ‘verify=True’
 
 
 Eval RC-LiCROcc

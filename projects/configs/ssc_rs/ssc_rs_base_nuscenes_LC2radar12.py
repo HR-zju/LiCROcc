@@ -61,7 +61,7 @@ model = dict(
         norm_eval=False,
         with_cp=True,
         style='pytorch',
-        pretrained='pre_ckpt/resnet50.pth',
+        pretrained='torchvision://resnet50',
         # frozen = True
     ),
     img_neck=dict(

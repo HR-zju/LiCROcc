@@ -76,7 +76,7 @@ model = dict(
         norm_eval=False,
         with_cp=True,
         style='pytorch',
-        pretrained='pre_ckpt/resnet50.pth',
+        pretrained='torchvision://resnet50',
     ),
     img_neck_distill=dict(
         type='CustomFPN',
@@ -112,7 +112,7 @@ model = dict(
         norm_eval=False,
         with_cp=True,
         style='pytorch',
-        pretrained='pre_ckpt/resnet50.pth',
+        pretrained='torchvision://resnet50',
     ),
     img_neck=dict(
         type='CustomFPN',
@@ -215,7 +215,7 @@ model = dict(
     
 )
 
-load_from = 'pre_ckpt/merged_model_distill.pth'
+load_from = 'pre_ckpt/merged_model_distill.pth' 
 
 dataset_type = 'nuScenesDataset'
 data_root = './data/nuscenes/'
