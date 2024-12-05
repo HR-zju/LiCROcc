@@ -86,6 +86,13 @@ Eval R-LiCROcc
 ./tools/dist_test.sh ./projects/configs/ssc_rs/ssc_rs_base_nuscenes_LC2radar12.py ./path/to/ckpts.pth N_GPUs
 ```
 
+Visualization
+
+Temporarily only support saving occupancy predictions (refer to [MonoScene](https://github.com/astra-vision/MonoScene#visualization) for visualization tools)
+```bash
+bash run_eval.sh $PATH_TO_CFG $PATH_TO_CKPT $GPU_NUM --show --show-dir $PATH
+```
+
 ## Model Zoo
  Subset | Checkpoint | Logs | Note |
 | :---: | :---: | :---: | :---: |
