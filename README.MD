@@ -90,7 +90,7 @@ Visualization
 
 Temporarily only support saving occupancy predictions (refer to [MonoScene](https://github.com/astra-vision/MonoScene#visualization) for visualization tools)
 ```bash
-bash run_eval.sh $PATH_TO_CFG $PATH_TO_CKPT $GPU_NUM --show --show-dir $PATH
+./tools/dist_test.sh $PATH_TO_CFG $PATH_TO_CKPT $GPU_NUM --show --show-dir $PATH
 ```
 
 ## Model Zoo
