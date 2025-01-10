@@ -102,15 +102,16 @@ Temporarily only support saving occupancy predictions (refer to [MonoScene](http
 ## Cite Us
 
 ```bibtex
-@misc{ma2024licroccteachradaraccurate,
-title={LiCROcc: Teach Radar for Accurate Semantic Occupancy Prediction using LiDAR and Camera}, 
-author={Yukai Ma and Jianbiao Mei and Xuemeng Yang and Licheng Wen and Weihua Xu and Jiangning Zhang and Botian Shi and Yong Liu and Xingxing Zuo},
-year={2024},
-eprint={2407.16197},
-archivePrefix={arXiv},
-primaryClass={cs.CV},
-url={https://arxiv.org/abs/2407.16197}, 
-}  
+@ARTICLE{10777549,
+  author={Ma, Yukai and Mei, Jianbiao and Yang, Xuemeng and Wen, Licheng and Xu, Weihua and Zhang, Jiangning and Zuo, Xingxing and Shi, Botian and Liu, Yong},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={LiCROcc: Teach Radar for Accurate Semantic Occupancy Prediction Using LiDAR and Camera}, 
+  year={2025},
+  volume={10},
+  number={1},
+  pages={852-859},
+  keywords={Radar;Semantics;Radar imaging;Three-dimensional displays;Laser radar;Feature extraction;Cameras;Sensors;Meteorology;Point cloud compression;Sensor fusion;semantic scene completion;knowledge distillation},
+  doi={10.1109/LRA.2024.3511427}}
 ```
 
 ## Credit
